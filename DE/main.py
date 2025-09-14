@@ -26,7 +26,7 @@ best_val = cp.inf
 best_res_old = None
 progress_old = None
 chk_old = []
-for _ in range(1):
+for _ in range(50):
   de = DEcluster(n_clusters= 5, n_particles=20, data=Z)
   res, gb_val = de.start(iteration=1000)
   print(gb_val)
