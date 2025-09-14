@@ -18,6 +18,13 @@ list_output = []
 Z = cp.float32(Z)
 Z = cp.asarray(Z)
 
+def cp_warmup():
+  a = cp.ones((1000,1000))
+  b = cp.ones((1000,1000))
+  c = cp.dot(a,b)
+
+
+
 pso = None
 best_val = cp.inf
 best_res = None
@@ -29,7 +36,7 @@ for i in range(50):
 
   cp_warmup()
 
-  res, gb_val = pso.start(iteration=100)
+  res, gb_val = pso.start(iteration=1000)
   print(gb_val)
   chk_old.append(gb_val)
   mean_val_old = mean_val_old + gb_val
